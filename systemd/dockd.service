@@ -1,0 +1,11 @@
+[Unit]
+Description=dockd — Steam Deck dock mode switcher
+After=default.target
+
+[Service]
+ExecStart=%h/.local/bin/dockd.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,15 @@
+#!/usr/bin/bash
+# dockd-toggle — enable or disable dockd auto mode-switching
+#
+# When disabled, plugging/unplugging the charger does nothing.
+# Re-enable by running this again.
+
+ENABLED_FLAG="$HOME/.config/dockd/.enabled"
+
+if [ -f "$ENABLED_FLAG" ]; then
+    rm "$ENABLED_FLAG"
+    echo "dockd: auto mode-switching DISABLED"
+else
+    touch "$ENABLED_FLAG"
+    echo "dockd: auto mode-switching ENABLED"
+fi

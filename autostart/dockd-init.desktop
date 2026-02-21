@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=dockd init
+Exec=/home/deck/.config/autostart/dockd-init.sh
+Hidden=false
+X-GNOME-Autostart-enabled=true

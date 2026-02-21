@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+# Example dockd module
+#
+# Rename to <priority>-<name>.sh (e.g. 10-openclaw.sh) and place in
+# ~/.config/dockd/modules/ to activate. Modules run in filename order
+# on server start, and in reverse order on gaming start.
+#
+# The dockd service must be restarted after adding a new module:
+#   systemctl --user restart dockd
+
+case "$1" in
+    start)
+        # Commands to run when entering server (Desktop) mode
+        # systemctl --user start myservice
+        ;;
+    stop)
+        # Commands to run when leaving server mode (entering Gaming mode)
+        # systemctl --user stop myservice
+        ;;
+    *)
+        echo "Usage: $0 {start|stop}" >&2
+        exit 1
+        ;;
+esac

@@ -66,3 +66,5 @@ curl -fsSL https://raw.githubusercontent.com/arnovandash/dockd/main/uninstall.sh
 ```
 
 ---
+
+*Built with [Claude Sonnet 4.6](https://claude.ai)*

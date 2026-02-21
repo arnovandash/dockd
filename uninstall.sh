@@ -31,12 +31,14 @@ rm -f "$AUTOSTART/dockd-init.sh" "$AUTOSTART/dockd-init.desktop"
 ok "Autostart removed"
 
 # Remove state and modules
-read -rp "Remove ~/.config/dockd/ (includes modules)? [y/N] " confirm
-if [[ "$confirm" =~ ^[Yy]$ ]]; then
+# When piped via curl, stdin is not a terminal — remove automatically
+if [ -t 0 ]; then
+    read -rp "Remove ~/.config/dockd/ (includes modules)? [y/N] " confirm
+    [[ "$confirm" =~ ^[Yy]$ ]] && rm -rf "$STATE" && ok "State and modules removed" \
+        || ok "Kept ~/.config/dockd/ — remove manually if needed"
+else
     rm -rf "$STATE"
     ok "State and modules removed"
-else
-    ok "Kept ~/.config/dockd/ — remove manually if needed"
 fi
 
 # Disable linger
